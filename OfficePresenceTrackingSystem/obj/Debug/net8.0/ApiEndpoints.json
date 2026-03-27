@@ -1,0 +1,86 @@
+[
+  {
+    "ContainingType": "OfficePresenceTrackingSystem.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "OfficePresenceTrackingSystem.DTOs.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OfficePresenceTrackingSystem.Controllers.LogsController",
+    "Method": "GetAllLogs",
+    "RelativePath": "api/logs/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OfficePresenceTrackingSystem.Controllers.LogsController",
+    "Method": "GetMyLogs",
+    "RelativePath": "api/logs/my",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OfficePresenceTrackingSystem.Controllers.PresenceController",
+    "Method": "GetPresence",
+    "RelativePath": "api/Presence",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OfficePresenceTrackingSystem.Controllers.PresenceController",
+    "Method": "UploadMapping",
+    "RelativePath": "api/Presence/upload-mapping",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OfficePresenceTrackingSystem.Controllers.PresenceController",
+    "Method": "UploadWifi",
+    "RelativePath": "api/Presence/upload-wifi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
