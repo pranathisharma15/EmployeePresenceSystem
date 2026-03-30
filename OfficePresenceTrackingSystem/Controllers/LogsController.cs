@@ -10,32 +10,86 @@ namespace OfficePresenceTrackingSystem.Controllers
     public class LogsController : ControllerBase
     {
         private readonly IPresenceService _presenceService;
+        private readonly ILogger<LogsController> _logger;
 
-        public LogsController(IPresenceService presenceService)
+        public LogsController(
+            IPresenceService presenceService,
+            ILogger<LogsController> logger)
         {
             _presenceService = presenceService;
+            _logger = logger;
         }
 
-        // ✅ ADMIN → see all processed logs
+        // ADMIN - see all processed logs
         [Authorize(Roles = "Admin")]
         [HttpGet("all")]
         public async Task<IActionResult> GetAllLogs()
         {
-            var logs = await _presenceService.GetAllPresenceAsync();
-            return Ok(logs);
+            try
+            {
+                var logs = await _presenceService.GetAllPresenceAsync();
+
+                if (logs == null || !logs.Any())
+                {
+                    _logger.LogInformation("No presence logs found");
+                    return NotFound(new
+                    {
+                        message = "No presence logs available"
+                    });
+                }
+
+                return Ok(logs);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error fetching all logs");
+
+                return StatusCode(500, new
+                {
+                    message = "An unexpected error occurred while fetching logs"
+                });
+            }
         }
 
-        // ✅ EMPLOYEE → get own logs
+        // EMPLOYEE - get own logs
         [Authorize(Roles = "Employee,Admin")]
         [HttpGet("my")]
         public async Task<IActionResult> GetMyLogs([FromQuery] string name)
         {
-            if (string.IsNullOrWhiteSpace(name))
-                return BadRequest("Name is required");
+            try
+            {
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    _logger.LogWarning("Employee name query parameter missing");
+                    return BadRequest(new
+                    {
+                        message = "Employee name is required"
+                    });
+                }
 
-            var logs = await _presenceService.GetPresenceByEmployeeNameAsync(name.Trim());
+                var logs = await _presenceService
+                    .GetPresenceByEmployeeNameAsync(name.Trim());
 
-            return Ok(logs);
+                if (logs == null || !logs.Any())
+                {
+                    _logger.LogInformation("No logs found for employee {Name}", name);
+                    return NotFound(new
+                    {
+                        message = $"No logs found for employee '{name}'"
+                    });
+                }
+
+                return Ok(logs);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error fetching logs for employee {Name}", name);
+
+                return StatusCode(500, new
+                {
+                    message = "An unexpected error occurred while fetching employee logs"
+                });
+            }
         }
     }
 }

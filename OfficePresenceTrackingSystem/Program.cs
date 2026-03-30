@@ -12,11 +12,11 @@ using OfficePresenceTrackingSystem.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ Controllers
+// Controllers
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// ✅ Swagger + JWT
+// Swagger with JWT Support
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
@@ -32,7 +32,7 @@ builder.Services.AddSwaggerGen(options =>
         Scheme = "bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Enter token as: Bearer <token>"
+        Description = "Enter: Bearer <your-token>"
     });
 
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -51,21 +51,17 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-// ✅ SQLite
+//  DB Context
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(
-        builder.Configuration.GetConnectionString("DefaultConnection")
-    ));
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// ✅ Dependency Injection
+// Dependency Injection
 builder.Services.AddScoped<IPresenceRepository, PresenceRepository>();
 builder.Services.AddScoped<IPresenceService, PresenceService>();
 builder.Services.AddScoped<JwtService>();
 
-// ✅ JWT Authentication
-var key = Encoding.UTF8.GetBytes(
-    "sdfghjkloiuytrdsdfghjkoiuytrdsdfghjkoiuyt"
-);
+// JWT Authentication
+var key = Encoding.UTF8.GetBytes("sdfghjkloiuytrdsdfghjkoiuytrdsdfghjkoiuyt");
 
 builder.Services.AddAuthentication(options =>
 {
@@ -89,12 +85,27 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// ✅ Authorization
+//  Authorization
 builder.Services.AddAuthorization();
+
+// CORS 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        policy =>
+        {
+            policy.WithOrigins(
+                    "http://localhost:3000",  // React (CRA)
+                    "http://localhost:5173"   // React (Vite)
+                )
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
 
 var app = builder.Build();
 
-// ✅ Swagger
+// Swagger
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -103,7 +114,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// ✅ IMPORTANT ORDER
+// IMPORTANT ORDER
+app.UseCors("AllowFrontend");   
+
 app.UseAuthentication();
 app.UseAuthorization();
 

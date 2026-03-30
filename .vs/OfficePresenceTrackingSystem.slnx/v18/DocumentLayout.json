@@ -3,32 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\services\\presenceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\services\\presenceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\models\\presencerecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\models\\presencerecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\helpers\\csvparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\helpers\\csvparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\repositories\\presencerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\repositories\\presencerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,16 +31,24 @@
       "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\services\\interfaces\\ipresenceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\repositories\\presencerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\repositories\\presencerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\repositories\\interfaces\\ipresencerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\repositories\\interfaces\\ipresencerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\helpers\\csvparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\helpers\\csvparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\controllers\\presencecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -61,6 +61,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|c:\\users\\00325100\\source\\repos\\officepresencetrackingsystem\\officepresencetrackingsystem\\models\\presencerecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7B4224A-F4B6-87BA-8236-7A2D9A0BA0BD}|OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem.csproj|solutionrelative:officepresencetrackingsystem\\models\\presencerecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,7 +74,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,33 +86,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "IPresenceRepository.cs",
-              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Repositories\\Interfaces\\IPresenceRepository.cs",
-              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Repositories\\Interfaces\\IPresenceRepository.cs",
-              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Repositories\\Interfaces\\IPresenceRepository.cs",
-              "RelativeToolTip": "OfficePresenceTrackingSystem\\Repositories\\Interfaces\\IPresenceRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "AppDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeToolTip": "OfficePresenceTrackingSystem\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T02:25:32.525Z",
+              "WhenOpened": "2026-03-30T09:19:09.995Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Models\\Employee.cs",
-              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Models\\Employee.cs",
-              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Models\\Employee.cs",
-              "RelativeToolTip": "OfficePresenceTrackingSystem\\Models\\Employee.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "PresenceRepository.cs",
+              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Repositories\\PresenceRepository.cs",
+              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Repositories\\PresenceRepository.cs",
+              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Repositories\\PresenceRepository.cs",
+              "RelativeToolTip": "OfficePresenceTrackingSystem\\Repositories\\PresenceRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T02:25:18.185Z",
+              "WhenOpened": "2026-03-30T02:26:02.221Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "IPresenceService.cs",
               "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Services\\Interfaces\\IPresenceService.cs",
               "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Services\\Interfaces\\IPresenceService.cs",
@@ -121,15 +125,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "JwtService.cs",
               "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Services\\JwtService.cs",
               "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Services\\JwtService.cs",
               "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Services\\JwtService.cs",
               "RelativeToolTip": "OfficePresenceTrackingSystem\\Services\\JwtService.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAIwCgAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAgwD4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-27T09:27:56.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\appsettings.json",
+              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\appsettings.json",
+              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\appsettings.json",
+              "RelativeToolTip": "OfficePresenceTrackingSystem\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-30T01:51:26.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Program.cs",
+              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Program.cs",
+              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Program.cs",
+              "RelativeToolTip": "OfficePresenceTrackingSystem\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T01:53:04.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IPresenceRepository.cs",
+              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Repositories\\Interfaces\\IPresenceRepository.cs",
+              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Repositories\\Interfaces\\IPresenceRepository.cs",
+              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Repositories\\Interfaces\\IPresenceRepository.cs",
+              "RelativeToolTip": "OfficePresenceTrackingSystem\\Repositories\\Interfaces\\IPresenceRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T02:25:32.525Z",
               "EditorCaption": ""
             },
             {
@@ -140,79 +183,53 @@
               "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Services\\PresenceService.cs",
               "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Services\\PresenceService.cs",
               "RelativeToolTip": "OfficePresenceTrackingSystem\\Services\\PresenceService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-27T09:16:04.502Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Program.cs",
-              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Program.cs",
-              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Program.cs",
-              "RelativeToolTip": "OfficePresenceTrackingSystem\\Program.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAGUAAAABAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "OfficePresenceTrackingSystem\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T01:53:04.762Z",
+              "WhenOpened": "2026-03-30T02:23:40.248Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\appsettings.json",
-              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\appsettings.json",
-              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\appsettings.json",
-              "RelativeToolTip": "OfficePresenceTrackingSystem\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-30T01:51:26.031Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PresenceRecord.cs",
-              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Models\\PresenceRecord.cs",
-              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Models\\PresenceRecord.cs",
-              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Models\\PresenceRecord.cs",
-              "RelativeToolTip": "OfficePresenceTrackingSystem\\Models\\PresenceRecord.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Models\\Employee.cs",
+              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Models\\Employee.cs",
+              "RelativeToolTip": "OfficePresenceTrackingSystem\\Models\\Employee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T02:25:23.307Z",
+              "WhenOpened": "2026-03-30T02:25:18.185Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "CsvParser.cs",
               "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Helpers\\CsvParser.cs",
               "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Helpers\\CsvParser.cs",
               "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Helpers\\CsvParser.cs",
               "RelativeToolTip": "OfficePresenceTrackingSystem\\Helpers\\CsvParser.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAQwGwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAYwJkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-30T02:24:30.587Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PresenceRepository.cs",
-              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Repositories\\PresenceRepository.cs",
-              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Repositories\\PresenceRepository.cs",
-              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Repositories\\PresenceRepository.cs",
-              "RelativeToolTip": "OfficePresenceTrackingSystem\\Repositories\\PresenceRepository.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAIwFoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T02:26:02.221Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "LoginDto.cs",
               "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\DTOs\\LoginDto.cs",
               "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\DTOs\\LoginDto.cs",
@@ -225,41 +242,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "OfficePresenceTrackingSystem\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T02:23:40.248Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 12,
               "Title": "PresenceController.cs",
               "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Controllers\\PresenceController.cs",
               "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Controllers\\PresenceController.cs",
               "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Controllers\\PresenceController.cs",
               "RelativeToolTip": "OfficePresenceTrackingSystem\\Controllers\\PresenceController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAwwCsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAkwIEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-30T02:23:01.725Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "OfficePresenceTrackingSystem\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAwwCUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T01:51:55.142Z",
               "EditorCaption": ""
             },
             {
@@ -270,9 +261,35 @@
               "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Controllers\\LogsController.cs",
               "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Controllers\\LogsController.cs",
               "RelativeToolTip": "OfficePresenceTrackingSystem\\Controllers\\LogsController.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAwwB8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-30T01:44:07.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "OfficePresenceTrackingSystem\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAYwD4AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T01:51:55.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PresenceRecord.cs",
+              "DocumentMoniker": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Models\\PresenceRecord.cs",
+              "RelativeDocumentMoniker": "OfficePresenceTrackingSystem\\Models\\PresenceRecord.cs",
+              "ToolTip": "C:\\Users\\00325100\\source\\repos\\OfficePresenceTrackingSystem\\OfficePresenceTrackingSystem\\Models\\PresenceRecord.cs",
+              "RelativeToolTip": "OfficePresenceTrackingSystem\\Models\\PresenceRecord.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T02:25:23.307Z",
               "EditorCaption": ""
             }
           ]

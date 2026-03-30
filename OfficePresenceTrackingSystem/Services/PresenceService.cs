@@ -9,99 +9,161 @@ namespace OfficePresenceTrackingSystem.Services
     public class PresenceService : IPresenceService
     {
         private readonly IPresenceRepository _repository;
+        private readonly ILogger<PresenceService> _logger;
 
-        public PresenceService(IPresenceRepository repository)
+        public PresenceService(
+            IPresenceRepository repository,
+            ILogger<PresenceService> logger)
         {
             _repository = repository;
+            _logger = logger;
         }
 
         public async Task UploadWifiLogsAsync(IFormFile file)
         {
-            using var stream = file.OpenReadStream();
-            var logs = CsvParser.ParseWifiLogs(stream);
+            try
+            {
+                ValidateFile(file);
 
-            await _repository.SaveWifiLogsAsync(logs);
+                using var stream = file.OpenReadStream();
+                var logs = CsvParser.ParseWifiLogs(stream);
+
+                await _repository.SaveWifiLogsAsync(logs);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error uploading WiFi logs");
+                throw new ApplicationException("Failed to upload WiFi logs.");
+            }
         }
 
         public async Task UploadMappingsAsync(IFormFile file)
         {
-            using var stream = file.OpenReadStream();
-            var employees = CsvParser.ParseMappings(stream);
+            try
+            {
+                ValidateFile(file);
 
-            await _repository.SaveEmployeesAsync(employees);
+                using var stream = file.OpenReadStream();
+                var employees = CsvParser.ParseMappings(stream);
+
+                await _repository.SaveEmployeesAsync(employees);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error uploading employee mappings");
+                throw new ApplicationException("Failed to upload employee mappings.");
+            }
         }
 
         public async Task<List<PresenceRecord>> GetPresenceAsync()
         {
-            var logs = await _repository.GetWifiLogsAsync();
-            var employees = await _repository.GetEmployeesAsync();
-
-            var uniqueEmployees = employees
-                .GroupBy(e => new
-                {
-                    Name = e.EmployeeName.Trim().ToUpper(),
-                    Serial = e.SerialNumber.Trim().ToUpper()
-                })
-                .Select(g => g.First())
-                .ToList();
-
-            var presenceList = new List<PresenceRecord>();
-
-            foreach (var emp in uniqueEmployees)
+            try
             {
-                var empLogs = logs
-                    .Where(l =>
-                        l.HostName.Trim().ToUpper() ==
-                        emp.SerialNumber.Trim().ToUpper())
-                    .OrderBy(l => l.StartTime)
+                var logs = await _repository.GetWifiLogsAsync();
+                var employees = await _repository.GetEmployeesAsync();
+
+                if (!employees.Any())
+                    return new List<PresenceRecord>();
+
+                var uniqueEmployees = employees
+                    .Where(e => !string.IsNullOrWhiteSpace(e.EmployeeName)
+                             && !string.IsNullOrWhiteSpace(e.SerialNumber))
+                    .GroupBy(e => new
+                    {
+                        Name = e.EmployeeName.Trim().ToUpper(),
+                        Serial = e.SerialNumber.Trim().ToUpper()
+                    })
+                    .Select(g => g.First())
                     .ToList();
 
-                if (!empLogs.Any())
+                var logLookup = logs
+                    .Where(l => !string.IsNullOrWhiteSpace(l.HostName))
+                    .GroupBy(l => l.HostName.Trim().ToUpper())
+                    .ToDictionary(g => g.Key, g => g.OrderBy(x => x.StartTime).ToList());
+
+                var presenceList = new List<PresenceRecord>();
+
+                foreach (var emp in uniqueEmployees)
                 {
+                    var serial = emp.SerialNumber.Trim().ToUpper();
+
+                    if (!logLookup.ContainsKey(serial))
+                    {
+                        presenceList.Add(new PresenceRecord
+                        {
+                            EmployeeName = emp.EmployeeName,
+                            LoginTime = DateTime.MinValue,
+                            LogoutTime = DateTime.MinValue,
+                            Status = StatusConstants.Remote
+                        });
+
+                        continue;
+                    }
+
+                    var empLogs = logLookup[serial];
+
                     presenceList.Add(new PresenceRecord
                     {
                         EmployeeName = emp.EmployeeName,
-                        LoginTime = DateTime.MinValue,
-                        LogoutTime = DateTime.MinValue,
-                        Status = StatusConstants.Remote
+                        LoginTime = empLogs.First().StartTime,
+                        LogoutTime = empLogs.Last().StartTime,
+                        Status = StatusConstants.Office
                     });
-
-                    continue;
                 }
 
-                var loginTime = empLogs.First().StartTime;
-                var logoutTime = empLogs.Last().StartTime;
+                await _repository.SavePresenceRecordsAsync(presenceList);
 
-                presenceList.Add(new PresenceRecord
-                {
-                    EmployeeName = emp.EmployeeName,
-                    LoginTime = loginTime,
-                    LogoutTime = logoutTime,
-                    Status = StatusConstants.Office
-                });
+                return await _repository.GetPresenceRecordsAsync();
             }
-
-            // ✅ SAVE TO DB SO SQLITE AUTO-GENERATES ID
-            await _repository.SavePresenceRecordsAsync(presenceList);
-
-            // ✅ FETCH SAVED RECORDS WITH GENERATED IDS
-            return await _repository.GetPresenceRecordsAsync();
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error generating presence records");
+                throw new ApplicationException("Failed to calculate presence.");
+            }
         }
 
         public async Task<List<PresenceRecord>> GetAllPresenceAsync()
         {
-            return await GetPresenceAsync();
+            try
+            {
+                return await _repository.GetPresenceRecordsAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error fetching all presence");
+                throw;
+            }
         }
 
         public async Task<List<PresenceRecord>> GetPresenceByEmployeeNameAsync(string employeeName)
         {
-            var all = await GetPresenceAsync();
+            try
+            {
+                if (string.IsNullOrWhiteSpace(employeeName))
+                    return new List<PresenceRecord>();
 
-            return all
-                .Where(p => p.EmployeeName.Equals(
-                    employeeName,
-                    StringComparison.OrdinalIgnoreCase))
-                .ToList();
+                var all = await _repository.GetPresenceRecordsAsync();
+
+                return all
+                    .Where(p => p.EmployeeName.Equals(
+                        employeeName,
+                        StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error filtering presence by employee name");
+                throw;
+            }
+        }
+
+        private void ValidateFile(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                throw new ArgumentException("Uploaded file is empty.");
+
+            if (!file.FileName.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
+                throw new ArgumentException("Only CSV files are allowed.");
         }
     }
 }
