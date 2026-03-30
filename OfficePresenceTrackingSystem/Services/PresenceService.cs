@@ -55,7 +55,7 @@ namespace OfficePresenceTrackingSystem.Services
             }
         }
 
-        public async Task<List<PresenceRecord>> GetPresenceAsync()
+        public async Task<List<PresenceRecord>> GetPresenceAsync(DateTime? date = null)
         {
             try
             {

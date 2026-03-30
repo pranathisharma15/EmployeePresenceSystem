@@ -51,7 +51,7 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-//  DB Context
+// DB Context
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -76,27 +76,25 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateIssuerSigningKey = true,
         ValidateLifetime = true,
-
         ValidIssuer = "office-app",
         ValidAudience = "office-app",
-
         IssuerSigningKey = new SymmetricSecurityKey(key),
         ClockSkew = TimeSpan.Zero
     };
 });
 
-//  Authorization
+// Authorization
 builder.Services.AddAuthorization();
 
-// CORS 
+// CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
         policy =>
         {
             policy.WithOrigins(
-                    "http://localhost:3000",  // React (CRA)
-                    "http://localhost:5173"   // React (Vite)
+                    "http://localhost:3000",
+                    "http://localhost:5173"
                 )
                 .AllowAnyHeader()
                 .AllowAnyMethod();
@@ -104,6 +102,13 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+// ✅ AUTO CREATE SQLITE DATABASE + TABLES
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.EnsureCreated();
+}
 
 // Swagger
 if (app.Environment.IsDevelopment())
@@ -115,7 +120,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // IMPORTANT ORDER
-app.UseCors("AllowFrontend");   
+app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
 app.UseAuthorization();

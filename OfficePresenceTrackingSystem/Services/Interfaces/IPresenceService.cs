@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using OfficePresenceTrackingSystem.Models;
+﻿using OfficePresenceTrackingSystem.Models;
 
 namespace OfficePresenceTrackingSystem.Services.Interfaces
 {
@@ -9,11 +8,10 @@ namespace OfficePresenceTrackingSystem.Services.Interfaces
 
         Task UploadMappingsAsync(IFormFile file);
 
-        Task<List<PresenceRecord>> GetPresenceAsync(); 
+        Task<List<PresenceRecord>> GetPresenceAsync(DateTime? date = null);
 
-        
         Task<List<PresenceRecord>> GetAllPresenceAsync();
-      
+
         Task<List<PresenceRecord>> GetPresenceByEmployeeNameAsync(string employeeName);
     }
 }

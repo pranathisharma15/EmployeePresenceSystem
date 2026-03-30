@@ -10,7 +10,8 @@ namespace OfficePresenceTrackingSystem.Models
 
         public DateTime LoginTime { get; set; }
 
-        public DateTime LogoutTime { get; set; }
+       
+        public DateTime? LogoutTime { get; set; }
 
         public string Status { get; set; } = string.Empty;
     }
