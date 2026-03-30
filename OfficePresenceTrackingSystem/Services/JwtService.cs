@@ -1,35 +1,41 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
+﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using OfficePresenceTrackingSystem.Models;
+using Microsoft.IdentityModel.Tokens;
 
 namespace OfficePresenceTrackingSystem.Services
 {
     public class JwtService
     {
-        private readonly string _key = "sdfghjkloiuytrdsdfghjkoiuytrdsdfghjkoiuyt";
+        private readonly string _key =
+            "sdfghjkloiuytrdsdfghjkoiuytrdsdfghjkoiuyt";
 
-        public string GenerateToken(User user)
+        public string GenerateToken(string username, string role)
         {
-            var claims = new[]
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var keyBytes = Encoding.UTF8.GetBytes(_key);
+
+            var tokenDescriptor = new SecurityTokenDescriptor
             {
-                new Claim(ClaimTypes.Name, user.Username),
-                new Claim(ClaimTypes.Role, user.Role)
+                Subject = new ClaimsIdentity(new[]
+                {
+                    new Claim(ClaimTypes.Name, username),
+                    new Claim(ClaimTypes.Role, role)
+                }),
+
+                Expires = DateTime.UtcNow.AddHours(2),
+
+                Issuer = "office-app",
+                Audience = "office-app",
+
+                SigningCredentials = new SigningCredentials(
+                    new SymmetricSecurityKey(keyBytes),
+                    SecurityAlgorithms.HmacSha256Signature
+                )
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_key));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var token = new JwtSecurityToken(
-                issuer: "office-app",
-                audience: "office-app",
-                claims: claims,
-                expires: DateTime.UtcNow.AddHours(2), // ✅ better than Now
-                signingCredentials: creds
-            );
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
         }
     }
 }

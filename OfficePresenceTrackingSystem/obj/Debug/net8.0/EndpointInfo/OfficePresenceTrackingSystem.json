@@ -166,7 +166,7 @@
     "securitySchemes": {
       "Bearer": {
         "type": "http",
-        "description": "Enter: Bearer <your-token>",
+        "description": "Enter token as: Bearer <token>",
         "scheme": "bearer",
         "bearerFormat": "JWT"
       }

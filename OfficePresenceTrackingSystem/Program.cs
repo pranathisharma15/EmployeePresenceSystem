@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// 🔐 Swagger with JWT Support
+// ✅ Swagger + JWT
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
@@ -32,7 +32,7 @@ builder.Services.AddSwaggerGen(options =>
         Scheme = "bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Enter: Bearer <your-token>"
+        Description = "Enter token as: Bearer <token>"
     });
 
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -51,17 +51,21 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-// 🔹 DB Context
+// ✅ SQLite
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlite(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    ));
 
-// 🔹 Dependency Injection
+// ✅ Dependency Injection
 builder.Services.AddScoped<IPresenceRepository, PresenceRepository>();
 builder.Services.AddScoped<IPresenceService, PresenceService>();
 builder.Services.AddScoped<JwtService>();
 
-// 🔐 JWT Authentication
-var key = Encoding.UTF8.GetBytes("sdfghjkloiuytrdsdfghjkoiuytrdsdfghjkoiuyt");
+// ✅ JWT Authentication
+var key = Encoding.UTF8.GetBytes(
+    "sdfghjkloiuytrdsdfghjkoiuytrdsdfghjkoiuyt"
+);
 
 builder.Services.AddAuthentication(options =>
 {
@@ -75,17 +79,17 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateIssuerSigningKey = true,
-        ValidateLifetime = true, // ✅ important
+        ValidateLifetime = true,
 
         ValidIssuer = "office-app",
         ValidAudience = "office-app",
 
         IssuerSigningKey = new SymmetricSecurityKey(key),
-        ClockSkew = TimeSpan.Zero // ✅ removes delay in expiry
+        ClockSkew = TimeSpan.Zero
     };
 });
 
-// 🔐 Authorization
+// ✅ Authorization
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
@@ -99,7 +103,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// 🔑 IMPORTANT ORDER
+// ✅ IMPORTANT ORDER
 app.UseAuthentication();
 app.UseAuthorization();
 

@@ -31,7 +31,6 @@ namespace OfficePresenceTrackingSystem.Helpers
                     if (values.Length < 5)
                         continue;
 
-                    // ✅ FIXED: Flexible date parsing (handles all formats)
                     DateTime startTime = DateTime.TryParse(
                         values[1]?.Trim(),
                         CultureInfo.InvariantCulture,
@@ -46,7 +45,6 @@ namespace OfficePresenceTrackingSystem.Helpers
                         out var end
                     ) ? end : DateTime.MinValue;
 
-                    // 🔥 Normalize HostName (remove NEX-)
                     var cleanedHost = values[4]?
                         .Replace("NEX-", "", StringComparison.OrdinalIgnoreCase)
                         .Trim()
@@ -96,8 +94,9 @@ namespace OfficePresenceTrackingSystem.Helpers
                     {
                         EmployeeName = values[0]?.Trim() ?? string.Empty,
 
-                        // 🔥 Normalize Serial Number
+                        // ✅ FIXED: same normalization as WiFi logs
                         SerialNumber = values[1]?
+                            .Replace("NEX-", "", StringComparison.OrdinalIgnoreCase)
                             .Trim()
                             .ToUpper() ?? string.Empty
                     });

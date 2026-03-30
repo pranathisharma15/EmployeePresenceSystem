@@ -16,29 +16,23 @@ namespace OfficePresenceTrackingSystem.Controllers
             _jwtService = jwtService;
         }
 
-        // TEMP: Hardcoded users (replace with DB later)
-        private readonly List<User> users = new()
-        {
-            new User { Username = "admin", Password = "admin123", Role = "Admin" },
-            new User { Username = "emp1", Password = "emp123", Role = "Employee", EmployeeId = "E001" }
-        };
-
         [HttpPost("login")]
-        public IActionResult Login(LoginDto dto)
+        public IActionResult Login([FromBody] LoginDto login)
         {
-            if (dto == null || string.IsNullOrWhiteSpace(dto.Username) || string.IsNullOrWhiteSpace(dto.Password))
-                return BadRequest("Username and Password are required");
+            // ✅ Demo users
+            if (login.Username == "admin" && login.Password == "admin123")
+            {
+                var token = _jwtService.GenerateToken(login.Username, "Admin");
+                return Ok(new { token });
+            }
 
-            var user = users.FirstOrDefault(u =>
-                u.Username.Equals(dto.Username, StringComparison.OrdinalIgnoreCase) &&
-                u.Password == dto.Password);
+            if (login.Username == "employee" && login.Password == "emp123")
+            {
+                var token = _jwtService.GenerateToken(login.Username, "Employee");
+                return Ok(new { token });
+            }
 
-            if (user == null)
-                return Unauthorized("Invalid credentials");
-
-            var token = _jwtService.GenerateToken(user);
-
-            return Ok(new { token });
+            return Unauthorized("Invalid username or password");
         }
     }
 }

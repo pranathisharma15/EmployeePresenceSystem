@@ -36,13 +36,23 @@ namespace OfficePresenceTrackingSystem.Services
             var logs = await _repository.GetWifiLogsAsync();
             var employees = await _repository.GetEmployeesAsync();
 
+            var uniqueEmployees = employees
+                .GroupBy(e => new
+                {
+                    Name = e.EmployeeName.Trim().ToUpper(),
+                    Serial = e.SerialNumber.Trim().ToUpper()
+                })
+                .Select(g => g.First())
+                .ToList();
+
             var presenceList = new List<PresenceRecord>();
 
-            foreach (var emp in employees)
+            foreach (var emp in uniqueEmployees)
             {
-                // ✅ Direct match (already normalized in CsvParser)
                 var empLogs = logs
-                    .Where(l => l.HostName == emp.SerialNumber)
+                    .Where(l =>
+                        l.HostName.Trim().ToUpper() ==
+                        emp.SerialNumber.Trim().ToUpper())
                     .OrderBy(l => l.StartTime)
                     .ToList();
 
@@ -59,11 +69,8 @@ namespace OfficePresenceTrackingSystem.Services
                     continue;
                 }
 
-                // ✅ First session start = Login
                 var loginTime = empLogs.First().StartTime;
-
-                // ✅ Last session end = Logout
-                var logoutTime = empLogs.Max(l => l.EndTime);
+                var logoutTime = empLogs.Last().StartTime;
 
                 presenceList.Add(new PresenceRecord
                 {
@@ -74,7 +81,11 @@ namespace OfficePresenceTrackingSystem.Services
                 });
             }
 
-            return presenceList;
+            // ✅ SAVE TO DB SO SQLITE AUTO-GENERATES ID
+            await _repository.SavePresenceRecordsAsync(presenceList);
+
+            // ✅ FETCH SAVED RECORDS WITH GENERATED IDS
+            return await _repository.GetPresenceRecordsAsync();
         }
 
         public async Task<List<PresenceRecord>> GetAllPresenceAsync()
@@ -87,7 +98,9 @@ namespace OfficePresenceTrackingSystem.Services
             var all = await GetPresenceAsync();
 
             return all
-                .Where(p => p.EmployeeName.Equals(employeeName, StringComparison.OrdinalIgnoreCase))
+                .Where(p => p.EmployeeName.Equals(
+                    employeeName,
+                    StringComparison.OrdinalIgnoreCase))
                 .ToList();
         }
     }

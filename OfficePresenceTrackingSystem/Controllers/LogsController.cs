@@ -16,7 +16,7 @@ namespace OfficePresenceTrackingSystem.Controllers
             _presenceService = presenceService;
         }
 
-        // ✅ ADMIN → See all logs
+        // ✅ ADMIN → see all processed logs
         [Authorize(Roles = "Admin")]
         [HttpGet("all")]
         public async Task<IActionResult> GetAllLogs()
@@ -25,7 +25,7 @@ namespace OfficePresenceTrackingSystem.Controllers
             return Ok(logs);
         }
 
-        // ✅ EMPLOYEE → Enter name and get logs
+        // ✅ EMPLOYEE → get own logs
         [Authorize(Roles = "Employee,Admin")]
         [HttpGet("my")]
         public async Task<IActionResult> GetMyLogs([FromQuery] string name)
