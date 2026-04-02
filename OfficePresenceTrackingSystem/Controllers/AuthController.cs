@@ -4,14 +4,14 @@ using OfficePresenceTrackingSystem.Services;
 
 namespace OfficePresenceTrackingSystem.Controllers
 {
-    [ApiController]
-    [Route("api/auth")]
-    public class AuthController : ControllerBase
+    [ApiController] // This attribute indicates that this class is an API controller, which provides automatic model validation and other features.
+    [Route("api/auth")] // This sets the base route for all actions in this controller to "api/auth". For example, the login action will be accessible at "api/auth/login".
+    public class AuthController : ControllerBase    
     {
-        private readonly JwtService _jwtService;
-        private readonly ILogger<AuthController> _logger;
+        private readonly JwtService _jwtService;    // This service is responsible for generating JWT tokens for authenticated users.
+        private readonly ILogger<AuthController> _logger;   
 
-        public AuthController(
+        public AuthController(  // The constructor takes in the JwtService and a logger for the AuthController.
             JwtService jwtService,
             ILogger<AuthController> logger)
         {
@@ -19,8 +19,8 @@ namespace OfficePresenceTrackingSystem.Controllers
             _logger = logger;
         }
 
-        [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginDto login)
+        [HttpPost("login")] // This attribute indicates that this action responds to HTTP POST requests at the "login" route, making the full route "api/auth/login".
+        public IActionResult Login([FromBody] LoginDto login)   // This action takes a LoginDto object from the request body, which contains the username and password for authentication.
         {
             try
             {

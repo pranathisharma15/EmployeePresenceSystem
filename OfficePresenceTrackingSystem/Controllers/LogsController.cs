@@ -9,10 +9,10 @@ namespace OfficePresenceTrackingSystem.Controllers
     [Authorize]
     public class LogsController : ControllerBase
     {
-        private readonly IPresenceService _presenceService;
-        private readonly ILogger<LogsController> _logger;
+        private readonly IPresenceService _presenceService; // Service for fetching presence logs
+        private readonly ILogger<LogsController> _logger;   // Logger for tracking actions and errors in this controller
 
-        public LogsController(
+        public LogsController(  // Constructor with dependency injection for presence service and logger
             IPresenceService presenceService,
             ILogger<LogsController> logger)
         {
@@ -23,7 +23,7 @@ namespace OfficePresenceTrackingSystem.Controllers
         // ADMIN - see all processed logs
         [Authorize(Roles = "Admin")]
         [HttpGet("all")]
-        public async Task<IActionResult> GetAllLogs()
+        public async Task<IActionResult> GetAllLogs()   // Action to get all presence logs, accessible only by Admin role
         {
             try
             {
@@ -54,7 +54,7 @@ namespace OfficePresenceTrackingSystem.Controllers
         // EMPLOYEE - get own logs
         [Authorize(Roles = "Employee,Admin")]
         [HttpGet("my")]
-        public async Task<IActionResult> GetMyLogs([FromQuery] string name)
+        public async Task<IActionResult> GetMyLogs([FromQuery] string name) // Action to get logs for a specific employee, accessible by both Employee and Admin roles. The employee name is passed as a query parameter.
         {
             try
             {

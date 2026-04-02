@@ -1,16 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OfficePresenceTrackingSystem.Models;
 using OfficePresenceTrackingSystem.Services.Interfaces;
 
 namespace OfficePresenceTrackingSystem.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PresenceController : ControllerBase
+    public class PresenceController : ControllerBase    //  This controller handles presence-related operations, such as uploading WiFi logs and mappings, and fetching presence data.
     {
-        private readonly IPresenceService _presenceService;
+        private readonly IPresenceService _presenceService; //  Service for handling presence-related business logic
         private readonly ILogger<PresenceController> _logger;
 
-        public PresenceController(
+        public PresenceController(  // Constructor with dependency injection for presence service and logger
             IPresenceService presenceService,
             ILogger<PresenceController> logger)
         {
@@ -18,8 +19,8 @@ namespace OfficePresenceTrackingSystem.Controllers
             _logger = logger;
         }
 
-        [HttpPost("upload-wifi")]
-        public async Task<IActionResult> UploadWifi(IFormFile file)
+        [HttpPost("upload-wifi")]   // This action handles the uploading of WiFi log files. It expects a file to be sent in the request and processes it using the presence service.
+        public async Task<IActionResult> UploadWifi(IFormFile file) // Action to upload WiFi logs, accessible via POST request to "api/presence/upload-wifi". The file is expected to be sent as form data.
         {
             try
             {
@@ -32,7 +33,7 @@ namespace OfficePresenceTrackingSystem.Controllers
                     });
                 }
 
-                await _presenceService.UploadWifiLogsAsync(file);
+                await _presenceService.UploadWifiLogsAsync(file);   // Calls the service to process the uploaded WiFi log file
 
                 return Ok(new
                 {
@@ -58,7 +59,7 @@ namespace OfficePresenceTrackingSystem.Controllers
             }
         }
 
-        [HttpPost("upload-mapping")]
+        [HttpPost("upload-mapping")]    // This action handles the uploading of employee mapping files. It expects a file to be sent in the request and processes it using the presence service.
         public async Task<IActionResult> UploadMapping(IFormFile file)
         {
             try
@@ -99,15 +100,15 @@ namespace OfficePresenceTrackingSystem.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPresence()
+        public async Task<IActionResult> GetPresence([FromQuery] DateTime? date = null)
         {
             try
             {
-                var result = await _presenceService.GetPresenceAsync();
+                var result = await _presenceService.GetPresenceAsync(date);
 
                 if (result == null || !result.Any())
                 {
-                    _logger.LogInformation("No presence data found");
+                    _logger.LogInformation("No presence data found for the selected date");
                     return NotFound(new
                     {
                         message = "No presence data available"

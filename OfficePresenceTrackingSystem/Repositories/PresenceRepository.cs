@@ -3,9 +3,9 @@ using OfficePresenceTrackingSystem.Data;
 using OfficePresenceTrackingSystem.Models;
 using OfficePresenceTrackingSystem.Repositories.Interfaces;
 
-namespace OfficePresenceTrackingSystem.Repositories
+namespace OfficePresenceTrackingSystem.Repositories // This class implements the IPresenceRepository interface and provides methods for managing the storage and retrieval of WiFi logs, employee data, and presence records in the application. It uses Entity Framework Core to interact with the database and includes error handling to ensure that any issues during database operations are logged and appropriately handled. The repository pattern helps to abstract the data access layer, making it easier to maintain and test the application.
 {
-    public class PresenceRepository : IPresenceRepository
+    public class PresenceRepository : IPresenceRepository   
     {
         private readonly AppDbContext _context;
         private readonly ILogger<PresenceRepository> _logger;
@@ -18,21 +18,32 @@ namespace OfficePresenceTrackingSystem.Repositories
             _logger = logger;
         }
 
-        public async Task SaveWifiLogsAsync(List<WifiLog> logs)
+        public async Task SaveWifiLogsAsync(List<WifiLog> logs) // This method saves a list of WiFi logs to the database. It first checks if the logs are null or empty and throws an exception if they are. Then, it uses a database transaction to ensure that the operation is atomic. It removes any existing WiFi logs from the database before adding the new logs. If any database errors occur during this process, they are logged and an exception is thrown to indicate the failure.
         {
-            try
+            try     
             {
                 if (logs == null || !logs.Any())
                     throw new ArgumentException("WiFi logs cannot be empty.");
 
-                using var transaction = await _context.Database.BeginTransactionAsync();
+                using var transaction = await _context.Database.BeginTransactionAsync();    // Start a database transaction
 
-                var oldLogs = await _context.WifiLogs.ToListAsync();
-                _context.WifiLogs.RemoveRange(oldLogs);
-                await _context.SaveChangesAsync();
+                // Fetch existing unique keys
+                var existingKeys = (await _context.WifiLogs
+                .Select(x => $"{x.MACAddress}_{x.StartTime}_{x.EndTime}_{x.IPAddress}")
+                .ToListAsync())
+                .ToHashSet();
 
-                await _context.WifiLogs.AddRangeAsync(logs);
-                await _context.SaveChangesAsync();
+                // Keep only new unique logs
+                var newLogs = logs
+                    .Where(log => !existingKeys.Contains(
+                        $"{log.MACAddress}_{log.StartTime}_{log.EndTime}_{log.IPAddress}"))
+                    .ToList();
+
+                if (newLogs.Any())
+                {
+                    await _context.WifiLogs.AddRangeAsync(newLogs);
+                    await _context.SaveChangesAsync();
+                }
 
                 await transaction.CommitAsync();
             }
@@ -48,7 +59,7 @@ namespace OfficePresenceTrackingSystem.Repositories
             }
         }
 
-        public async Task SaveEmployeesAsync(List<Employee> employees)
+        public async Task SaveEmployeesAsync(List<Employee> employees)  // This method saves a list of employee data to the database. It first checks if the employee list is null or empty and throws an exception if it is. Then, it uses a database transaction to ensure that the operation is atomic. It removes any existing employee data from the database before adding the new employee data. The method also ensures that only unique employees with valid names and serial numbers are added to the database. If any database errors occur during this process, they are logged and an exception is thrown to indicate the failure.
         {
             try
             {
@@ -61,7 +72,7 @@ namespace OfficePresenceTrackingSystem.Repositories
                 _context.Employees.RemoveRange(oldEmployees);
                 await _context.SaveChangesAsync();
 
-                var uniqueEmployees = employees
+                var uniqueEmployees = employees // Filter out employees with empty names or serial numbers, and ensure uniqueness based on trimmed and uppercased values
                     .Where(e => !string.IsNullOrWhiteSpace(e.EmployeeName)
                              && !string.IsNullOrWhiteSpace(e.SerialNumber))
                     .GroupBy(e => new
@@ -89,7 +100,7 @@ namespace OfficePresenceTrackingSystem.Repositories
             }
         }
 
-        public async Task<List<WifiLog>> GetWifiLogsAsync()
+        public async Task<List<WifiLog>> GetWifiLogsAsync() // This method retrieves a list of WiFi logs from the database. It performs an asynchronous operation to fetch the data and returns a list of WifiLog objects. The logs are ordered by their start time for easier analysis. If any errors occur during the database operation, they are logged and an exception is thrown to indicate the failure.
         {
             try
             {
@@ -105,7 +116,7 @@ namespace OfficePresenceTrackingSystem.Repositories
             }
         }
 
-        public async Task<List<Employee>> GetEmployeesAsync()
+        public async Task<List<Employee>> GetEmployeesAsync()   // This method retrieves a list of employee data from the database. It performs an asynchronous operation to fetch the data and returns a list of Employee objects. The method uses AsNoTracking() to improve performance since the retrieved entities are not being modified. If any errors occur during the database operation, they are logged and an exception is thrown to indicate the failure.
         {
             try
             {
@@ -120,7 +131,7 @@ namespace OfficePresenceTrackingSystem.Repositories
             }
         }
 
-        public async Task SavePresenceRecordsAsync(List<PresenceRecord> records)
+        public async Task SavePresenceRecordsAsync(List<PresenceRecord> records)    // This method saves a list of presence records to the database. It first checks if the presence records list is null or empty and throws an exception if it is. Then, it uses a database transaction to ensure that the operation is atomic. It removes any existing presence records from the database before adding the new presence records. The new records are ordered by employee name for easier retrieval. If any database errors occur during this process, they are logged and an exception is thrown to indicate the failure.
         {
             try
             {
@@ -150,7 +161,18 @@ namespace OfficePresenceTrackingSystem.Repositories
             }
         }
 
-        public async Task<List<PresenceRecord>> GetPresenceRecordsAsync()
+        public async Task<List<PresenceRecord>> GetPresenceAsync(DateTime? date)
+        {
+            var query = _context.PresenceRecords.AsQueryable();
+
+            if (date.HasValue)
+            {
+                query = query.Where(x => x.LoginTime.Date == date.Value.Date);
+            }
+
+            return await query.ToListAsync();
+        }
+        public async Task<List<PresenceRecord>> GetPresenceRecordsAsync()   // This method retrieves a list of presence records from the database. It performs an asynchronous operation to fetch the data and returns a list of PresenceRecord objects. The records are ordered by employee name for easier analysis. If any errors occur during the database operation, they are logged and an exception is thrown to indicate the failure.
         {
             try
             {

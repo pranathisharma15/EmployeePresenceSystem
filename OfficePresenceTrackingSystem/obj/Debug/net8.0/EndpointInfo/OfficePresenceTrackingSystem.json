@@ -138,6 +138,16 @@
         "tags": [
           "Presence"
         ],
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"

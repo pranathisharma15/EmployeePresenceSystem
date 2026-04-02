@@ -3,9 +3,9 @@ using OfficePresenceTrackingSystem.Models;
 
 namespace OfficePresenceTrackingSystem.Helpers
 {
-    public static class CsvParser
+    public static class CsvParser   // Static helper class for parsing CSV files related to WiFi logs and employee mappings
     {
-        public static List<WifiLog> ParseWifiLogs(Stream fileStream)
+        public static List<WifiLog> ParseWifiLogs(Stream fileStream)    // Parses a CSV file stream to extract WiFi log entries and returns a list of WifiLog objects
         {
             if (fileStream == null || fileStream.Length == 0)
                 throw new ArgumentException("WiFi file stream is empty");
@@ -14,11 +14,11 @@ namespace OfficePresenceTrackingSystem.Helpers
 
             try
             {
-                using var reader = new StreamReader(fileStream);
-                bool isHeader = true;
-                int rowNumber = 0;
+                using var reader = new StreamReader(fileStream);    // Using StreamReader to read the CSV file stream
+                bool isHeader = true;   // Flag to skip the header row
+                int rowNumber = 0;  // Counter to track the current row number for error reporting
 
-                while (!reader.EndOfStream)
+                while (!reader.EndOfStream) // Loop through each line of the CSV file until the end is reached
                 {
                     var line = reader.ReadLine();
                     rowNumber++;
@@ -32,7 +32,7 @@ namespace OfficePresenceTrackingSystem.Helpers
                     if (string.IsNullOrWhiteSpace(line))
                         continue;
 
-                    try
+                    try     // Try to parse the current line into a WifiLog object, handling potential format issues
                     {
                         var values = line.Split(',');
 
@@ -118,9 +118,9 @@ namespace OfficePresenceTrackingSystem.Helpers
                     {
                         var values = line.Split(',');
 
-                        if (values.Length < 2)
+                        if (values.Length < 5)
                             throw new FormatException(
-                                $"Invalid mapping CSV format at row {rowNumber}");
+                                $"Invalid mapping CSV format at row {rowNumber}. Expected 5 columns.");
 
                         employees.Add(new Employee
                         {
@@ -133,7 +133,13 @@ namespace OfficePresenceTrackingSystem.Helpers
                                 .Trim()
                                 .ToUpper()
                                 ?? throw new FormatException(
-                                    $"SerialNumber missing at row {rowNumber}")
+                                    $"SerialNumber missing at row {rowNumber}"),
+
+                            Department = values[2]?.Trim() ?? string.Empty,
+
+                            Team = values[3]?.Trim() ?? string.Empty,
+
+                            Designation = values[4]?.Trim() ?? string.Empty
                         });
                     }
                     catch (Exception ex)

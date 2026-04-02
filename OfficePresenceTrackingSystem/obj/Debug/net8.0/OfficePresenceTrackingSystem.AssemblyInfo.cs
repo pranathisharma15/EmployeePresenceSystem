@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OfficePresenceTrackingSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d503b65ecca2c6d75ceaa334c0647e21ffbbc55")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb0859324e303040968f1cb70318d186c79de64c")]
 [assembly: System.Reflection.AssemblyProductAttribute("OfficePresenceTrackingSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OfficePresenceTrackingSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
