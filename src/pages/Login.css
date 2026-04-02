@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* FULL SPLIT */
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+/* LEFT (WHITE) */
+.login-left {
+  width: 50%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+}
+
+/* TITLE */
+.title {
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+/* LOGIN TEXT */
+.login-left h2 {
+  color: rgb(0, 0, 0);
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+/* INPUTS */
+.login-left input {
+  width: 70%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  background: transparent;
+}
+
+.login-left input:focus {
+  outline: none;
+  border-bottom: 1px solid black;
+}
+
+/* BUTTON */
+.login-left button {
+  width: 73.44%;
+  padding: 12px;
+  margin: 20px 0;
+  background: rgb(6, 6, 6);
+  color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+}
+
+.login-left button:hover {
+  background: #313131;
+}
+
+/* RIGHT (BLACK) */
+.login-right {
+  width: 50%;
+  background-image: url("../assets/bg.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  font-size: x-large;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+/* BRAND TEXT */
+.branding {
+  text-align: center;
+}
+
+.branding h1 {
+  font-size: 36px;
+  letter-spacing: 3px;
+}
+
+.branding p {
+  margin-top: 10px;
+  color: #aaa;
+}

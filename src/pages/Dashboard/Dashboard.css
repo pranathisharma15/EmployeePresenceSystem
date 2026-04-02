@@ -1,0 +1,14 @@
+.dashboard-page {
+  padding: 24px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.loading-card {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  text-align: center;
+  color: #64748b;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}

@@ -1,0 +1,41 @@
+.filters-panel {
+  display: grid;
+  grid-template-columns: 1.2fr repeat(4, 1fr);
+  gap: 16px;
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px;
+}
+
+.filter-input {
+  padding: 12px 14px;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  background: #f8fafc;
+}
+
+.filter-input:focus {
+  border-color: #2563eb;
+}
+
+.date-range-wrapper {
+  position: relative;
+  min-width: 260px;
+}
+
+.date-range-popup {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  display: flex;
+  gap: 10px;
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 100;
+}
